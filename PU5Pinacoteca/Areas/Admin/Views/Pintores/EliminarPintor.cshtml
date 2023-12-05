@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = "Layout_Admin2";
+}
+<form>
+    <div class="eliminarartista">
+        <h1>Eliminar pintor</h1>
+
+        <input type="hidden" id="txtId" />
+        <p class="container__textoeliminar mt-3">
+            ¿Desea eliminar a este pintor:
+            <span class="container__nombrepelicula">Nombre del pintor</span>?
+        </p>
+        <div class="col mb-2">
+            <img class="imagePreviewclass" src="~/Pintores/1.jpg" />
+        </div>
+        <div class="botones">
+            <p id="error"></p>
+            <input type="submit" value="Confirmar" id="btnConfirmar" />
+            <a href="AdminPintor.html">
+                <input type="button" value="Cancelar" id="btnCancelar" />
+            </a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinacoteca</title>
+    <link href="/Styles/estilo.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Pinacoteca</h1>
+      <img src="/Logo_1.jpg" alt="Logotipo de Pinacoteca" />
+    </header>
+
+    <nav>
+      <a href="IndexAdmin.html">Coleccion</a>
+      <a href="AdminPintor.html">Pintores</a>
+    </nav>
+
+    <main>
+      <form>
+        <div>
+          <h1>Editar Pintor</h1>
+
+          <input type="hidden" id="txtId" />
+
+          <label>Nombre:</label>
+          <input type="text" id="txtNombre" />
+
+          <label>País:</label>
+          <input type="text" id="txtPais" />
+
+          <label>Ciudad:</label>
+          <input type="text" id="txtCiudad" />
+
+          <label>Fecha Nacimiento:</label>
+          <input type="text" id="txtFechaNacimiento" />
+
+          <label>Fecha Fallecimiento:</label>
+          <input type="text" id="txtFechaFallecimiento" />
+
+          <label>Biografía:</label>
+          <input type="text" id="txtBiografia" />
+
+          <label>Imagen:</label>
+          <input type="file" id="fileUpload1" accept="image/jpg" />
+
+          <img id="imagePreview" src="/Pintores/1.jpg" />
+
+          <div class="botones">
+            <p id="error"></p>
+            <input type="submit" value="Guardar" id="btnGuardar" />
+            <a href="AdminPintor.html">
+              <input type="button" value="Cancelar" id="btnCancelar" />
+            </a>
+          </div>
+        </div>
+      </form>
+      <script>
+        function mostrarImagen(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("imagePreview").src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        document
+          .getElementById("fileUpload1")
+          .addEventListener("change", function () {
+            mostrarImagen(this);
+          });
+      </script>
+    </main>
+    <footer>
+      <p>&copy; 2023 Pinacoteca. Programación Web.</p>
+    </footer>
+  </body>
+</html>

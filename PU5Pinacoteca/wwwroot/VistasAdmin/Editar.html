@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinacoteca</title>
+    <link href="/Styles/estilo.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Pinacoteca</h1>
+      <img src="/Logo_1.jpg" alt="Logotipo de Pinacoteca" />
+    </header>
+
+    <nav>
+      <a href="AdminIndex.html">Colección</a>
+      <a href="AdminPintor.html">Pintores</a>
+    </nav>
+
+    <main>
+      <form>
+        <div>
+          <h1>Editar Cuadro</h1>
+
+          <input type="hidden" id="txtId" />
+
+          <label>Título del cuadro:</label>
+          <input type="text" id="txtTitulo" />
+
+          <label>Pintor:</label>
+          <select id="cmbPintor">
+            <option>-- Seleccionar Pintor--</option>
+          </select>
+
+          <label>Fecha de pintado:</label>
+          <input type="text" id="txtFecha" />
+
+          <label>Técnica:</label>
+          <input type="text" id="txtTecnica" />
+
+          <label>Dimensiones:</label>
+          <input type="text" id="txtDimensiones" />
+
+          <label>Colección:</label>
+          <select id="cmbColeccion">
+            <option>-- Seleccionar la Colección--</option>
+          </select>
+
+          <label>Descripción:</label>
+          <input type="text" id="txtDescripcion" />
+
+          <label>Imagen:</label>
+          <input type="file" id="fileUpload1" accept="image/jpg" />
+
+          <img id="imagePreview" src="/Cuadros/1.jpg" />
+
+          <div class="botones">
+            <p id="error"></p>
+            <input type="submit" value="Guardar" id="btnGuardar" />
+            <a href="IndexAdmin.html">
+              <input type="button" value="Cancelar" id="btnCancelar" />
+            </a>
+          </div>
+        </div>
+      </form>
+      <script>
+        function mostrarImagen(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("imagePreview").src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        document
+          .getElementById("fileUpload1")
+          .addEventListener("change", function () {
+            mostrarImagen(this);
+          });
+      </script>
+    </main>
+    <footer>
+      <p>&copy; 2023 Pinacoteca. Programacion Web.</p>
+    </footer>
+  </body>
+</html>

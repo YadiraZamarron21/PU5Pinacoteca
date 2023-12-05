@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = "Layout_Admin2";
+}
+<form>
+    <div class="eliminarartista">
+        <h1>Eliminar cuadro</h1>
+
+        <input type="hidden" asp-for="Id" />
+        <p class="container__textoeliminar mt-3">
+            ¿Desea eliminar este cuadro:
+            <span class="container__nombrepelicula">Titulo cuadro</span>?
+        </p>
+        <div class="col mb-2">
+            <img class="imagePreviewclass" src="~/Cuadros/1.jpg" />
+        </div>
+        <div class="botones">
+            <p id="error"></p>
+            <input type="submit" value="Confirmar" id="btnConfirmar" />
+            <a href="IndexAdmin.html">
+                <input type="button" value="Cancelar" id="btnCancelar" />
+            </a>
+        </div>
+    </div>
+</form>
