@@ -12,10 +12,6 @@ namespace PU5Pinacoteca.Controllers
         {
             return View();
         }
-        public IActionResult Cuadros()
-        {
-            return View();
-        }
         public IActionResult Pintores()
         {
             return View();
@@ -28,19 +24,28 @@ namespace PU5Pinacoteca.Controllers
         {
             return View();
         }
+        public IActionResult VerCuadrosPorPintor()
+        {
+            return View();
+        }
 
 
-        //SIN VISTA:
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
+
+      
         //[HttpPost]
         //public IActionResult Login()
         //{
         //    return View();
         //}
+        
+        
+        //SIN VISTA:
+
         public IActionResult Denied()
         {
             return View();
