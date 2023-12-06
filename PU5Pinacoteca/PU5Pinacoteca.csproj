@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Models\ViewModels\**" />
+    <Content Remove="Areas\Admin\Models\ViewModels\**" />
+    <EmbeddedResource Remove="Areas\Admin\Models\ViewModels\**" />
+    <None Remove="Areas\Admin\Models\ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
@@ -14,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\ViewModels\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 

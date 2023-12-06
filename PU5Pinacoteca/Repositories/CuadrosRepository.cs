@@ -11,10 +11,10 @@ namespace PU5Pinacoteca.Repositories
         }
         public override IEnumerable<Cuadro> GetAll()
         {
-            return Context.Cuadro.Include(x => x.IdColeccionNavigation).OrderBy(x => x.TituloCuadro);
+            return Context.Cuadro.Include(x => x.IdColeccionNavigation).Include(x=>x.IdPintorNavigation).OrderBy(x => x.TituloCuadro);
         }
 
-
+        
         public IEnumerable<Cuadro> GetCuadroByColeccion(int coleccion)
         {
             return Context.Cuadro.

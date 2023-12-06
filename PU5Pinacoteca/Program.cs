@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<Repository<Coleccion>>();
 builder.Services.AddTransient<PintoresRepository>();
 builder.Services.AddTransient<CuadrosRepository>();
+builder.Services.AddTransient<Repository<Pintor>>();
 
 
 //INYECTANDO EL CONTEXT

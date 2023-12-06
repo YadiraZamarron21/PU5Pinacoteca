@@ -1,4 +1,5 @@
-﻿@{
+﻿@model PU5Pinacoteca.Areas.Admin.Models.AdminVerCuadrosViewModel
+@{
     Layout = "LayoutAdmin";
 }
 
@@ -7,92 +8,32 @@
     </a>
 
     <section id="colecciones">
-        <h1>Nombre de coleccion</h1>
+        @foreach (var item in Model.Colecciones)
+    {
+        
+        <h1>@item.Clasificacion</h1>
         <div class="cuadro-seccion">
             <div>
                 <ul class="Cuadros-lista">
+                    @foreach (var cuadro in item.Cuadros)
+                    {
+                        
                     <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
+
+                        <img src="~/Cuadros/@(cuadro.Id).jpg" alt="Cuadro" />
+                        <h3>@cuadro.Nombre</h3>
+                        <h5>@cuadro.NombrePintor</h5>
                         <div class="obra-actions">
                             <a href="Editar.html" class="btnEditar">Editar</a>
                             <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
                         </div>
                     </li>
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
+                    }
+                   
                 </ul>
             </div>
         </div>
 
-        <h1>Nombre de coleccion</h1>
-        <div class="cuadro-seccion">
-            <div>
-                <ul class="Cuadros-lista">
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                    <li class="cuadro">
-                        <img src="~/Cuadros/1.jpg" alt="Cuadro" />
-                        <h3>Nombre del cuadro</h3>
-                        <h5>Nombre del pintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
+    }
+        
     </section>
