@@ -1,46 +1,44 @@
-﻿@{
+﻿@model PU5Pinacoteca.Areas.Admin.Models.AdminAgregarCuadroViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     Layout = "Layout_Admin2";
 }
-<form>
+<form action="~/Admin/Cuadros/Editar" method="post" enctype="multipart/form-data">
     <div>
-        <h1>Editar Cuadro</h1>
-
-        <input type="hidden" id="txtId" />
-
+        <h1>Agregar Cuadro</h1>
+        <input hidden asp-for="Id" id="Id" />
         <label>Título del cuadro:</label>
-        <input type="text" id="txtTitulo" />
+        <input type="text" id="txtTitulo" asp-for="Nombre" />
 
         <label>Pintor:</label>
-        <select id="cmbPintor">
-            <option>-- Seleccionar Pintor--</option>
+        <select id="cmbPintor" asp-for="IdPintor" asp-items="@(new SelectList(Model.Pintores,"Id","Nombre"))" required>
         </select>
 
-        <label>Fecha de pintado:</label>
-        <input type="text" id="txtFecha" />
+        <label>Año en el que se pintó:</label>
+        <input type="text" id="txtFecha" asp-for="AñoPintado" />
 
         <label>Técnica:</label>
-        <input type="text" id="txtTecnica" />
+        <input type="text" id="txtTecnica" asp-for="Tecnica" />
 
         <label>Dimensiones:</label>
-        <input type="text" id="txtDimensiones" />
+        <input type="text" id="txtDimensiones" asp-for="Dimensiones" />
 
         <label>Colección:</label>
-        <select id="cmbColeccion">
-            <option>-- Seleccionar la Colección--</option>
+        <select id="cmbColeccion" asp-for="IdColeccion" asp-items="@(new SelectList(Model.Colecciones,"Id","Nombre"))">
         </select>
 
         <label>Descripción:</label>
-        <input type="text" id="txtDescripcion" />
+        <input type="text" id="txtDescripcion" asp-for="Descripcion" />
 
         <label>Imagen:</label>
-        <input type="file" id="fileUpload1" accept="image/jpg" />
+        <input type="file" id="fileUpload1" accept="image/jpg" asp-for="Archivo" />
 
-        <img id="imagePreview" src="~/Cuadros/1.jpg" />
+        <img id="imagePreview" src="~/Cuadros/no-disponible.png" />
 
         <div class="botones">
-            <p id="error"></p>
-            <input type="submit" value="Guardar" id="btnGuardar" />
-            <a href="IndexAdmin.html">
+            <p id="error">@Html.ValidationSummary(true)</p>
+            <input type="submit" value="Agregar" id="btnAgregar" />
+            <a href="~/Admin/Cuadros">
                 <input type="button" value="Cancelar" id="btnCancelar" />
             </a>
         </div>

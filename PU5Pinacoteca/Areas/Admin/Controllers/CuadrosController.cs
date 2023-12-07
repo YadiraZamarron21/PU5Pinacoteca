@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using PU5Pinacoteca.Areas.Admin.Models;
 using PU5Pinacoteca.Models.Entities;
@@ -58,7 +59,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
         {
             if (vm.Archivo != null)
             {
-                if (vm.Archivo.ContentType != "image/jpg")
+                if (vm.Archivo.ContentType != "image/jpeg")
                 {
                     ModelState.AddModelError("", "Sólo se permiten imagenes JPG");
                 }
@@ -111,25 +112,64 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
                 cuadrosRepos.Insert(cuadro);
                 if (vm.Archivo == null)
                 {
-                    System.IO.File.Copy("wwwroot/images/burger.png", $"wwwroot/Cuadros/{cuadro.Id}.jpg");
+                    System.IO.File.Copy("wwwroot/Cuadros/no-disponible.png", $"wwwroot/Cuadros/{cuadro.Id}.jpg");
                 }
                 else
                 {
-                    System.IO.FileStream fs = System.IO.File.Create($"wwwroot/Cuadros/{cuadro.Id}.png");
+                    System.IO.FileStream fs = System.IO.File.Create($"wwwroot/Cuadros/{cuadro.Id}.jpg");
                     vm.Archivo.CopyTo(fs);
                     fs.Close();
                 }
 
                 return RedirectToAction("Index");
             }
-            //vm.Colecciones = 
+            vm.Colecciones = coleccionRepos.GetAll().Select(x => new AdminColeccionModel
+            {
+                Id = x.Id,
+                Nombre = x.Nombre
+            });
+            vm.Pintores = pintorRepo.GetAll().Select(x => new AdminPintorModel
+            {
+                Id = x.IdPintor,
+                Nombre = x.Nombre
+            });
             return View(vm);
         }
 
         [HttpGet]
         public IActionResult Editar(int id)
         {
-            return View();
+            var cuadro = cuadrosRepos.Get(id);
+            if (cuadro == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                AdminAgregarCuadroViewModel vm = new()
+                {
+                    AñoPintado = cuadro.FechaPintado,
+                    IdColeccion = cuadro.IdColeccion,
+                    Descripcion = cuadro.Descripcion,
+                    Dimensiones = cuadro.Dimensiones,
+                    Id = cuadro.Id,
+                    IdPintor = cuadro.IdPintor,
+                    Nombre = cuadro.TituloCuadro,
+                    Tecnica = cuadro.Tecnica
+                
+                };
+            vm.Colecciones = coleccionRepos.GetAll().Select(x => new AdminColeccionModel
+            {
+                Id = x.Id,
+                Nombre = x.Nombre
+            });
+            vm.Pintores = pintorRepo.GetAll().Select(x => new AdminPintorModel
+            {
+                Id = x.IdPintor,
+                Nombre = x.Nombre
+            });
+            return View(vm);
+            }
         }
         [HttpPost]
         public IActionResult Editar()
