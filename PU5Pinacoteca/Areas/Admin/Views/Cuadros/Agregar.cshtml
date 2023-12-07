@@ -8,11 +8,10 @@
         <h1>Agregar Cuadro</h1>
 
         <label>Título del cuadro:</label>
-        <input type="text" id="txtTitulo" asp-for="Nombre"/>
+        <input type="text" id="txtTitulo" asp-for="Nombre" />
 
         <label>Pintor:</label>
         <select id="cmbPintor" asp-for="IdPintor" asp-items="@(new SelectList(Model.Pintores,"Id","Nombre"))" required>
-            
         </select>
 
         <label>Año en el que se pintó:</label>
@@ -22,18 +21,17 @@
         <input type="text" id="txtTecnica" asp-for="Tecnica" />
 
         <label>Dimensiones:</label>
-        <input type="text" id="txtDimensiones" asp-for="Dimensiones"/>
+        <input type="text" id="txtDimensiones" asp-for="Dimensiones" />
 
         <label>Colección:</label>
         <select id="cmbColeccion" asp-for="IdColeccion" asp-items="@(new SelectList(Model.Colecciones,"Id","Nombre"))">
-           
         </select>
 
         <label>Descripción:</label>
-        <input type="text" id="txtDescripcion" asp-for="Descripcion"/>
+        <input type="text" id="txtDescripcion" asp-for="Descripcion" />
 
         <label>Imagen:</label>
-        <input type="file" id="fileUpload1" accept="image/jpg" asp-for="Archivo"/>
+        <input type="file" id="fileUpload1" accept="image/jpg" asp-for="Archivo" />
 
         <img id="imagePreview" src="~/Cuadros/no-disponible.png" />
 
@@ -48,18 +46,18 @@
 </form>
 <script>
     function mostrarImagen(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          document.getElementById("imagePreview").src = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
-      }
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("imagePreview").src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 
     document
-      .getElementById("fileUpload1")
-      .addEventListener("change", function () {
-        mostrarImagen(this);
-      });
+        .getElementById("fileUpload1")
+        .addEventListener("change", function () {
+            mostrarImagen(this);
+        });
 </script>

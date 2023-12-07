@@ -2,7 +2,7 @@
 @{
     Layout = "LayoutAdmin";
 }
-<a href="Agregar.html">
+<a href="~/Admin/Cuadros/Agregar">
     <input type="button" id="agregarObraBtn" value="+" />
 </a>
 <section id="colecciones">
@@ -18,8 +18,8 @@
                             <img src="~/Cuadros/@(i.Id).jpg" alt="Obra" />
                         <h3>@i.Nombre</h3>
                         <div class="botones">
-                        <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        <a href="Editar.html" class="btnEditar">Editar</a>
+                        <a href="~/Admin/Cuadros/Eliminar/@i.Id" class="btnBorrar">Eliminar</a>
+                        <a href="~/Admin/Cuadros/Editar/@i.Id" class="btnEditar">Editar</a>
                         </div>
 
                     </div>
