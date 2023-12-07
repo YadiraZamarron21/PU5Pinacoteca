@@ -39,13 +39,28 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Agregar()
         {
+            AdminAgregarCuadroViewModel vm = new();
+            vm.Colecciones = coleccionRepos.GetAll().Select(x => new AdminColeccionModel
+            {
+                Id = x.Id,
+                Nombre = x.Nombre
+            });
+            vm.Pintores = pintorRepo.GetAll().Select(x=> new AdminPintorModel
+            {
+                Id = x.IdPintor,
+                Nombre = x.Nombre
+            });
+            return View(vm);
+        }
+        [HttpPost]
+        public IActionResult Agregar(AdminAgregarCuadroViewModel vm)
+        {
+            if (vm.Archivo != null)
+            {
+
+            }
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Agregar()
-        //{
-        //    return View();
-        //}
 
         [HttpGet]
         public IActionResult Editar(int id)

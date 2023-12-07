@@ -10,7 +10,9 @@
         public string Dimensiones { get; set; } = null!;
         public IEnumerable<AdminColeccionModel> Colecciones { get; set; } = null!;
         public string Descripcion { get; set; } = null!;
-        public IFormFile? Archivo { get; set; } 
+        public IFormFile? Archivo { get; set; }
+        public int IdPintor { get; set; }
+        public int IdColeccion { get; set; }
     }
     public class AdminPintorModel
     {
