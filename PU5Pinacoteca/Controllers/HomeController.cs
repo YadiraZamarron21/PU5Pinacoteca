@@ -12,6 +12,10 @@ namespace PU5Pinacoteca.Controllers
         {
             return View();
         }
+        public IActionResult Cuadros()
+        {
+            return View();
+        }
         public IActionResult Pintores()
         {
             return View();

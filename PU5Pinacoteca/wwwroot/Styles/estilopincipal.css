@@ -46,26 +46,60 @@ nav a:hover,
   background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
 }
 .colecciones {
-  column-gap: 5px;
+  column-gap: 10px;
+  columns: 4;
 }
 
 .obras-lista {
   columns: 2; /* Puedes ajustar el número de columnas según sea necesario */
-  column-gap: 5px;
+  column-gap: 10px;
   list-style: none;
-  padding: 10px;
+  padding: 20px;
   background-color: #80634e; /* Tono marrón claro */
+  align-items: center;
+  text-align: center;
 }
 .pintor-lista {
-  columns: 4 auto; /* Puedes ajustar el número de columnas según sea necesario */
-  column-gap: 5px;
+  columns: 2; /* Puedes ajustar el número de columnas según sea necesario */
+  column-gap: 10px;
   list-style: none;
   padding: 10px;
   background-color: #80634e; /* Tono marrón claro */
+  align-items: center;
+  text-align: center;
 }
 
+.pintor {
+  margin-bottom: 10px;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+  color: #ddd;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 2px solid #ddd;
+  background-color: #664c3a; /* Tono marrón medio oscuro */
+}
+.pintor img {
+  align-items: center;
+  max-width: 200%;
+  width: 250px;
+  height: 345px;
+  margin-bottom: 100px;
+  margin-left: 10px;
+  margin-top: 30px;
+  align-content: center;
+  display: block;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s;
+}
 .obra {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   padding: 5px;
   align-items: center;
   text-align: center;
@@ -77,26 +111,104 @@ nav a:hover,
   background-color: #664c3a; /* Tono marrón medio oscuro */
 }
 .obra h3 {
-  font-size: 19px;
+  font-size: 20px;
+  margin-top: 395px;
+  margin-left: -100%;
 }
 .obra p {
   font-size: 16px;
+  margin-left: -100%;
 }
 .obra img {
   align-items: center;
-  max-width: 100%;
-  height: auto;
+  max-width: 400%;
+  width: 395px;
+  height: 345px;
+  margin-bottom: 100px;
+  margin-left: 40%;
+  margin-top: 30px;
   align-content: center;
   display: block;
-  margin-bottom: 10px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s;
+}
+.nombre {
+  margin-right: 70px;
+  margin-top: 65%;
+}
+.nombreautor {
+  text-align: center;
+}
+.imag {
+  height: 100%;
+  width: 100%;
 }
 
+.login {
+  font-family: Arial, sans-serif;
+  background-color: #997965;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-container img {
+  max-width: 60%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-button {
+  background-color: #664c3a;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  background-color: #80634e;
+}
+.pintor img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+}
 .obra img:hover {
   transform: translateY(-10px);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
@@ -104,86 +216,29 @@ nav a:hover,
 section {
   padding: 1px;
 }
-.nombreautor {
-    text-align: center;
-}
-
-.login {
-    font-family: Arial, sans-serif;
-    background-color: #997965;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-    .login-container img {
-        max-width: 60%;
-        height: auto;
-        margin-bottom: 10px;
-    }
-
-.form-group {
-    text-align: left;
-    margin-bottom: 40px;
-}
-
-    .form-group label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-.login-button {
-    background-color: #664c3a;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-    .login-button:hover {
-        background-color: #80634e;
-    }
-
 
 .fecha-container {
   display: flex;
   align-items: center;
+  margin-left: 115px;
   justify-content: center;
 }
+.fecha-nacim {
+  padding-left: 20px;
+  padding-right: 110%;
+}
 
-.fecha-nacim,
 .fecha-falleci {
-  margin: 0 2px;
+  padding-right: 20px;
 }
 
 .pais-seccion {
+  margin-top: 5px; /* Ajusta el espacio entre la imagen y el texto según sea necesario */
   break-inside: avoid; /* Evitar que una sección se divida entre columnas */
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+  columns: 2;
   border-radius: 8px;
+  text-align: center;
 }
 
 .est {
@@ -192,6 +247,13 @@ section {
   align-items: center;
   width: 100%;
 }
+.obra .nombre {
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 180px;
+  margin-left: -20%;
+}
+
 .est h1 {
   font-size: 35px;
 }
