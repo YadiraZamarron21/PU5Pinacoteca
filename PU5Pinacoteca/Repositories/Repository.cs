@@ -21,7 +21,7 @@ namespace PU5Pinacoteca.Repositories
             return Context.Find<T>(id);
         }
 
-        public virtual void Incert(T entity)
+        public virtual void Insert(T entity)
         {
             Context.Add(entity);
             Context.SaveChanges();

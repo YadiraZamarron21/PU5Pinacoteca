@@ -15,8 +15,8 @@
             
         </select>
 
-        <label>Fecha de pintado:</label>
-        <input type="date" id="txtFecha" asp-for="FechaPintado" />
+        <label>Año en el que se pintó:</label>
+        <input type="text" id="txtFecha" asp-for="AñoPintado" />
 
         <label>Técnica:</label>
         <input type="text" id="txtTecnica" asp-for="Tecnica" />
@@ -38,7 +38,7 @@
         <img id="imagePreview" src="~/Cuadros/no-disponible.png" />
 
         <div class="botones">
-            <p id="error"></p>
+            <p id="error">@Html.ValidationSummary(true)</p>
             <input type="submit" value="Agregar" id="btnAgregar" />
             <a href="~/Admin/Cuadros">
                 <input type="button" value="Cancelar" id="btnCancelar" />

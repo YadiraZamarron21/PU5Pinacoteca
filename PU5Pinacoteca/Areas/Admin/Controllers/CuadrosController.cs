@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using PU5Pinacoteca.Areas.Admin.Models;
 using PU5Pinacoteca.Models.Entities;
 using PU5Pinacoteca.Repositories;
@@ -57,9 +58,72 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
         {
             if (vm.Archivo != null)
             {
-
+                if (vm.Archivo.ContentType != "image/jpg")
+                {
+                    ModelState.AddModelError("", "Sólo se permiten imagenes JPG");
+                }
+                if (vm.Archivo.Length > 500 * 1024)
+                {
+                    ModelState.AddModelError("", "Sólo se permiten archivos no mayores a 500kb");
+                }
             }
-            return View();
+            if (string.IsNullOrWhiteSpace(vm.Nombre))
+            {
+                ModelState.AddModelError("","Escribe el nombre del cuadro");
+            }
+            if (string.IsNullOrWhiteSpace(vm.AñoPintado.ToString()))
+            {
+                ModelState.AddModelError("","El año no puede estar vacío");
+            }
+            else
+            {
+                if (vm.AñoPintado > DateTime.Now.Year)
+                {
+                    ModelState.AddModelError("","La fecha no puede ser en un futuro");
+                }
+            }
+            if (string.IsNullOrWhiteSpace(vm.Tecnica))
+            {
+                ModelState.AddModelError("", "Escribe el nombre de la técnica que se usó");
+            }
+            if (string.IsNullOrWhiteSpace(vm.Dimensiones))
+            {
+                ModelState.AddModelError("", "Escriba las dimensiones del cuadro");
+            }
+            if (string.IsNullOrWhiteSpace(vm.Descripcion))
+            {
+                ModelState.AddModelError("", "Escriba la descripción del cuadro");
+            }
+            if (ModelState.IsValid)
+            {
+                var cuadro = new Cuadro()
+                {
+                    Descripcion = vm.Descripcion,
+                    Dimensiones = vm.Dimensiones,
+                    FechaPintado = vm.AñoPintado,
+                    Id = vm.Id,
+                    IdColeccion = vm.IdColeccion,
+                    IdPintor = vm.IdPintor,
+                    Tecnica = vm.Tecnica,
+                    TituloCuadro = vm.Nombre
+
+                };
+                cuadrosRepos.Insert(cuadro);
+                if (vm.Archivo == null)
+                {
+                    System.IO.File.Copy("wwwroot/images/burger.png", $"wwwroot/Cuadros/{cuadro.Id}.jpg");
+                }
+                else
+                {
+                    System.IO.FileStream fs = System.IO.File.Create($"wwwroot/Cuadros/{cuadro.Id}.png");
+                    vm.Archivo.CopyTo(fs);
+                    fs.Close();
+                }
+
+                return RedirectToAction("Index");
+            }
+            //vm.Colecciones = 
+            return View(vm);
         }
 
         [HttpGet]

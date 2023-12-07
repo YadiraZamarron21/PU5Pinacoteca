@@ -1,9 +1,39 @@
 ﻿@model PU5Pinacoteca.Areas.Admin.Models.AdminVerCuadrosViewModel
 @{
-    Layout = "LayoutAdmin";
+    Layout = "Layout_Admin2";
 }
 
-    <a href="~/Admin/Cuadros/Agregar">
+
+<a href="/Admin/Cuadros/Agregar">
+    <input type="button" id="agregarObraBtn" value="+" />
+</a>
+
+<section id="colecciones">
+    @foreach (var coleccion in Model.Colecciones)
+    {
+        <h1>@coleccion.Clasificacion</h1>
+        <div class="obras-lista">
+                <div class="obra">
+                @foreach (var cuadro in coleccion.Cuadros)
+                {
+                <div class="pais-seccion">
+                    <img class="imgObra" src="/Cuadros/@(cuadro.Id).jpg" alt="Obra" />
+                    <h3>@cuadro.Nombre</h3>
+                    <p>@cuadro.NombrePintor</p>
+                    <div class="obra-actions">
+                        <a href="Editar.html" class="btnEditar">Editar</a>
+                        <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    }
+       
+</section>
+
+
+   @*  <a href="~/Admin/Cuadros/Agregar">
         <input type="button" id="agregarObraBtn" value="+" />
     </a>
 
@@ -35,4 +65,4 @@
 
     }
         
-    </section>
+    </section> *@
