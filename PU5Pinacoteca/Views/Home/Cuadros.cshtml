@@ -1,84 +1,26 @@
-﻿
+﻿@model PU5Pinacoteca.Models.ViewModels.CuadrosViewModel
 @{
     Layout = "Layout";
 }
 <section id="colecciones">
-    <h1>Nombre de la Colección</h1>
-    <div class="obras-lista">
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/1.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
+    @foreach (var item in Model.Colecciones)
+    {
+        <h1>@item.Clasificacion</h1>
+
+        <div class="obras-lista">
+            @foreach (var i in item.Cuadros)
+            {
+                <div class="obra">
+                    <div class="pais-seccion">
+                        <a class="imgObra" href="VerCuadro.html">
+                            <img src="~/Cuadros/@(i.Id).jpg" alt="Obra" />
+                        </a>
+                        <h3>@i.Nombre</h3>
+                        <p>@i.NombrePintor</p>
+                    </div>
+                </div>
+            }
+
         </div>
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/2.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/3.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/4.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-    </div>
-    <h1>Nombre de la Colección</h1>
-    <div class="obras-lista">
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/5.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/6.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/7.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-        <div class="obra">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerCuadro.html">
-                    <img src="~/Cuadros/8.jpg" alt="Obra" />
-                </a>
-                <h3>Nombre del cuadro</h3>
-                <p>Nombre del pintor</p>
-            </div>
-        </div>
-    </div>
+    }
 </section>

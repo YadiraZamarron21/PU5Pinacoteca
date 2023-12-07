@@ -1,68 +1,31 @@
 ﻿@model PU5Pinacoteca.Areas.Admin.Models.AdminVerCuadrosViewModel
 @{
-    Layout = "Layout_Admin2";
+    Layout = "LayoutAdmin";
 }
-
-
-<a href="/Admin/Cuadros/Agregar">
+<a href="Agregar.html">
     <input type="button" id="agregarObraBtn" value="+" />
 </a>
-
 <section id="colecciones">
-    @foreach (var coleccion in Model.Colecciones)
+    @foreach (var item in Model.Colecciones)
     {
-        <h1>@coleccion.Clasificacion</h1>
+        <h1>@item.Clasificacion</h1>
+
         <div class="obras-lista">
-                <div class="obra">
-                @foreach (var cuadro in coleccion.Cuadros)
-                {
-                <div class="pais-seccion">
-                    <img class="imgObra" src="/Cuadros/@(cuadro.Id).jpg" alt="Obra" />
-                    <h3>@cuadro.Nombre</h3>
-                    <p>@cuadro.NombrePintor</p>
-                    <div class="obra-actions">
-                        <a href="~/Admin/Cuadros/Editar/@cuadro.Id" class="btnEditar">Editar</a>
+            @foreach (var i in item.Cuadros)
+            {
+                <div class="obra2">
+                    <div class="pais-seccion">
+                            <img src="~/Cuadros/@(i.Id).jpg" alt="Obra" />
+                        <h3>@i.Nombre</h3>
+                        <div class="botones">
                         <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
+                        <a href="Editar.html" class="btnEditar">Editar</a>
+                        </div>
+
                     </div>
                 </div>
-                }
-            </div>
+            }
+
         </div>
     }
-       
 </section>
-
-
-   @*  <a href="~/Admin/Cuadros/Agregar">
-        <input type="button" id="agregarObraBtn" value="+" />
-    </a>
-
-    <section id="colecciones">
-        @foreach (var item in Model.Colecciones)
-    {
-        
-        <h1>@item.Clasificacion</h1>
-        <div class="cuadro-seccion">
-            <div>
-                <ul class="Cuadros-lista">
-                    @foreach (var cuadro in item.Cuadros)
-                    {
-                        
-                    <li class="cuadro">
-                        <img src="~/Cuadros/@(cuadro.Id).jpg" alt="Cuadro" />
-                        <h3>@cuadro.Nombre</h3>
-                        <h5>@cuadro.NombrePintor</h5>
-                        <div class="obra-actions">
-                            <a href="Editar.html" class="btnEditar">Editar</a>
-                            <a href="Eliminar.html" class="btnBorrar">Eliminar</a>
-                        </div>
-                    </li>
-                    }
-                   
-                </ul>
-            </div>
-        </div>
-
-    }
-        
-    </section> *@
