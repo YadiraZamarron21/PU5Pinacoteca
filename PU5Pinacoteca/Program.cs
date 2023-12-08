@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
 using PU5Pinacoteca.Models.Entities;
@@ -9,7 +10,18 @@ builder.Services.AddTransient<Repository<Coleccion>>();
 builder.Services.AddTransient<PintoresRepository>();
 builder.Services.AddTransient<CuadrosRepository>();
 builder.Services.AddTransient<Repository<Pintor>>();
+builder.Services.AddTransient<Repository<Usuarios>>();
 
+//AUTENTICACION
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.AccessDeniedPath = "/Home/Denied"; //ACCESO DENEGADO
+    x.LoginPath = "/Home/Login"; //ACCESO PERMITIFO
+    x.LogoutPath = "/Home/Logout"; //CERRAR SESION
+    x.ExpireTimeSpan = TimeSpan.FromMinutes(30); //COOKIE ACTIVA
+    x.Cookie.Name = "pinacotecaCookie"; //NOMBRE COOKIE
+
+});
 
 //INYECTANDO EL CONTEXT
 builder.Services.AddDbContext<PinacotecabdContext>
