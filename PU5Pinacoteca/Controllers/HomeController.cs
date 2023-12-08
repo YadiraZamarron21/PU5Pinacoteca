@@ -103,7 +103,7 @@ namespace PU5Pinacoteca.Controllers
                     ClaimsIdentity identity = new(claims, CookieAuthenticationDefaults.AuthenticationScheme); //CREACION DE LA CREDENCIAL
                     HttpContext.SignInAsync(new ClaimsPrincipal(identity), new AuthenticationProperties
                     {
-                        IsPersistent = true,  //LOGIN PERSISTENTE PARA PRUEBAS
+                        IsPersistent = false,  //LOGIN PERSISTENTE PARA PRUEBAS
                     });
 
                     return RedirectToAction("Index", "Home", new { area = "Admin" });
