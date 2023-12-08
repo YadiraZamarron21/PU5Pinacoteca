@@ -1,22 +1,28 @@
-﻿@{
+﻿@model PU5Pinacoteca.Models.ViewModels.PintoresViewModel
+@{
     Layout = "Layout";
 }
 <section id="colecciones">
-    <h1>País de origen</h1>
-    <div class="obras-lista">
-        <div class="pintor">
-            <div class="pais-seccion">
-                <a class="imgObra" href="VerPintor.html">
-                    <img src="/Pintores/1.jpg" alt="Artista" />
-                </a>
-                <h3 class="nombre">Nombre del pintor</h3>
-                <div class="fecha-container">
-                    <p class="fecha-falleci">1940</p>
-                    <p>-</p>
-                    <p class="fecha-nacim">1890</p>
+    @foreach (var item in Model.Paises)
+    {
+        <h1>@item.NombrePais</h1>
+        <div class="obras-lista">
+            @foreach (var p in item.Pintores)
+            {
+                <div class="pintor">
+                    <div class="pais-seccion">
+                        <a class="imgObra" href="~/Home/Pintores/VerPintor/@(p.Id)">
+                            <img src="~/Pintores/@(p.Id).jpg" alt="Artista" />
+                        </a>
+                        <h3 class="nombre">@p.Nombre</h3>
+                        <div class="fecha-container">
+                            <p class="fecha-falleci">@p.FechaFallec</p>
+                            <p>-</p>
+                            <p class="fecha-nacim">@p.FechaNacim</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
-    </div>
-
+    }
 </section>

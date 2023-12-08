@@ -1,28 +1,24 @@
-﻿@{
+﻿@model PU5Pinacoteca.Models.ViewModels.VerCuadroViewModel
+@{
     Layout = "Layout";
 }
 <div class="est">
     <div class="estampilla">
-        <img src="~/Cuadros/1.jpg" alt="Imagen del cuadro" />
-        <h3>Paul Gauguin</h3>
-        <p><strong>Fecha de pintado:</strong> 1897</p>
-        <p><strong>Técnica:</strong> Pintura al aceite</p>
-        <p><strong>Dimensiones:</strong> 139cm x 374cm</p>
-        <p><strong>Colección:</strong> El Museo del prado</p>
+        <img src="~/Cuadros/@(Model.Id).jpg" alt="Imagen del cuadro" />
+        <h3>@Model.Pintor</h3>
+        <p><strong>Fecha de pintado:</strong> @Model.FechaPintado</p>
+        <p><strong>Técnica:</strong>@Model.Tecnica</p>
+        <p><strong>Dimensiones:</strong> @Model.Dimensiones</p>
+        <p><strong>Colección:</strong>@Model.Coleccion</p>
     </div>
     <div class="descripcion">
-        <h1>¿De dónde venimos? ¿Quiénes somos? ¿Adónde vamos?</h1>
+        <h1>@Model.Titulo.Replace(" ", "-")</h1>
         <p>
-            En la pintura, Gauguin representa diversas figuras que simbolizan
-            las etapas de la vida, desde la infancia hasta la vejez. El título y
-            la composición sugieren una reflexión filosófica sobre el
-            significado de la existencia humana. Gauguin, a través de esta obra,
-            buscaba explorar temas universales y cuestionar la vida, la
-            espiritualidad y el propósito en un contexto cultural y personal.
+            @Model.Descripcion
         </p>
     </div>
     <div class="botones">
-        <a class="button" href="Cuadros.html">
+        <a class="button" href="~/Home/Cuadros">
             <img src="~/images/hogar.png" alt="Obra" />
         </a>
     </div>

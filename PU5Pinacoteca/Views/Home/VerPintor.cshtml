@@ -1,27 +1,25 @@
-﻿@{
+﻿@model PU5Pinacoteca.Models.ViewModels.VerPintorViewModel
+@{
     Layout = "Layout";
 }
 <div class="est">
     <div class="estampillapintor">
-        <img id="pintor" src="~/Pintores/1.jpg" alt="Imagen del cuadro" />
+        <img id="pintor" src="~/Pintores/@(Model.Id).jpg" alt="Imagen del cuadro" />
     </div>
     <div class="descripcionpintor">
-        <h1>Paul Gauguin</h1>
-        <p>Francia <strong>,</strong> <label>Paris</label></p>
-        <p><strong>Fecha de nacimiento:</strong> 1848-06-07</p>
-        <p><strong>Fecha de fallecimiento:</strong> 1903-05-08</p>
+        <h1>@Model.Nombre</h1>
+        <p>@Model.Pais <strong>,</strong> <label>@Model.Ciudad</label></p>
+        <p><strong>Fecha de nacimiento:</strong> @Model.FechaNacimiento</p>
+        <p><strong>Fecha de fallecimiento:</strong> @Model.FechaFallecimiento</p>
         <p>
-            Eugène Henri Paul Gauguin, conocido como Paul Gauguin, fue un pintor
-            posimpresionista reconocido después de su fallecimiento. El uso
-            experimental del color y su estilo sintetista fueron elementos clave
-            para su distinción respecto al impresionismo.
+            @Model.Biografia
         </p>
     </div>
     <div class="botones">
-        <a class="button" href="Pintores.html">
+        <a class="button" href="~/Home/Pintores">
             <img src="~/images/hogar.png" alt="Obra" />
         </a>
-        <a class="button" href="VerCuadrosPorPintor.html">
+        <a class="button" href="~/Home/Pintores/VerCuadrosPorPintor/@(Model.Nombre.Replace(" ", "-"))">
             <img src="~/images/ver-lista.png" alt="Obra" />
         </a>
     </div>

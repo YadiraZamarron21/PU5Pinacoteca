@@ -15,6 +15,10 @@ namespace PU5Pinacoteca.Repositories
         {
             return Context.Pintor.Include(x => x.Pais).OrderBy(x => x.Pais);
         }
+        public Pintor? GetByNombre(string nombre)
+        {
+            return Context.Pintor.Include(x => x.Nombre).FirstOrDefault(x => x.Nombre == nombre);
+        }
     }
 }
 

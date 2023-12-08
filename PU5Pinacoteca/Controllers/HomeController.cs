@@ -14,10 +14,10 @@ namespace PU5Pinacoteca.Controllers
         //INYECTAR EL REPOSITORIO
         private readonly CuadrosRepository cuadrosRepository;
         private readonly Repository<Coleccion> coleccionRepository;
-        private readonly Repository<Pintor> pintorRepository;
+        private readonly PintoresRepository pintorRepository;
         private readonly Repository<Usuarios> usuariosRepository;
 
-        public HomeController(CuadrosRepository cuadrosRepository, Repository<Coleccion> coleccionRepository, Repository<Pintor> pintorRepository, Repository<Usuarios> usuariosRepository)
+        public HomeController(CuadrosRepository cuadrosRepository, Repository<Coleccion> coleccionRepository,PintoresRepository pintorRepository, Repository<Usuarios> usuariosRepository)
         {
             this.cuadrosRepository = cuadrosRepository;
             this.coleccionRepository = coleccionRepository;
@@ -50,13 +50,50 @@ namespace PU5Pinacoteca.Controllers
         {
             return View();
         }
-        public IActionResult VerCuadro()
+        public IActionResult VerCuadro(string id)
         {
-            return View();
+            id = id.Replace("-", " ");
+            var cuadro = cuadrosRepository.GetByNombre(id);
+
+            if (cuadro == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            VerCuadroViewModel vm = new()
+            {
+                Id = cuadro.Id,
+                Titulo = cuadro.TituloCuadro,
+                Descripcion = cuadro.Descripcion,
+                Pintor = cuadro.IdPintorNavigation.Nombre,
+                Coleccion = cuadro.IdColeccionNavigation.Nombre,
+                FechaPintado = cuadro.FechaPintado,
+                Tecnica = cuadro.Tecnica,
+                Dimensiones = cuadro.Dimensiones ?? ""
+            };
+            return View(vm);
         }
-        public IActionResult VerPintor()
+        public IActionResult VerPintor(string id)
         {
-            return View();
+            id = id.Replace("-", " ");
+            var pintor = pintorRepository.GetByNombre(id);
+
+            if (pintor == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            VerPintorViewModel vm = new()
+            {
+                Id = pintor.IdPintor,
+                Nombre = pintor.Nombre,
+                Biografia = pintor.Biografia,
+                FechaFallecimiento = pintor.FechaFallecimiento ?? "",
+                FechaNacimiento = pintor.FechaNacimiento ?? "",
+                Ciudad = pintor.Ciudad,
+                Pais = pintor.Pais
+            };
+            return View(vm);
         }
         public IActionResult VerCuadrosPorPintor()
         {

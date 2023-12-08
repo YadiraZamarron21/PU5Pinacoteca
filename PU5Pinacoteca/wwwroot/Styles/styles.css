@@ -1,0 +1,249 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 5px;
+  background-color: #f5f0e1; /* Tono crema claro */
+}
+
+body h1 {
+  font-size: 30px;
+  font-family: cursive;
+}
+header {
+  background-color: #a88774; /* Tono tierra */
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  max-height: 80px; /* Ajusta según sea necesario */
+}
+
+nav {
+  background-color: #7d5c4d; /* Tono marrón medio */
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 1em;
+  margin: 0 1em;
+  font-weight: bold;
+}
+nav a:hover {
+  background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
+}
+nav a:hover,
+.selected {
+  background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
+}
+.colecciones {
+  column-gap: 10px;
+  columns: 4;
+}
+
+main {
+  padding: 20px;
+}
+
+input#agregarObraBtn {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 23px;
+  width: 60px;
+  height: 70px;
+  background-color: #5b4336;
+  color: #fff;
+  cursor: pointer;
+  font-size: 28px;
+}
+.colecciones {
+  column-gap: 10px;
+  columns: 4;
+}
+.imag {
+  height: 190%;
+  width: 100%;
+}
+.obras-lista {
+  columns: 2 auto; /* Puedes ajustar el número de columnas según sea necesario */
+  column-gap: 10px;
+  list-style: none;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  padding: 10px;
+  background-color: #80634e; /* Tono marrón claro */
+  align-items: center;
+  text-align: center;
+}
+
+.pais-seccion {
+  margin-top: 1px; /* Ajusta el espacio entre la imagen y el texto según sea necesario */
+  margin-bottom: 0px;
+  columns: 2;
+  background-color: #80634e;
+  padding: 5px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.obra2 {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #fff;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  justify-content: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Evitar que la sombra se desborde */
+}
+.obra2 img {
+  align-items: center;
+  max-width: 400%;
+  width: 410px;
+  height: 370px;
+  margin-bottom: -180px;
+  margin-left: 30%;
+  margin-top: 70px;
+  align-content: center;
+  display: block;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.obra-actions {
+  margin-top: 500px;
+}
+
+.obra2 h3 {
+  font-size: 20px;
+  margin-top: 395px;
+  margin-left: -100%;
+}
+
+section {
+  padding: 1px;
+}
+
+.btnEditar,
+.btnBorrar {
+  padding: 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.btnEditar {
+  background-color: #997965;
+  margin-right: 10px;
+}
+.btnEditar:hover {
+  background-color: #5b4336;
+}
+
+.btnBorrar {
+  background-color: #7d5c4d;
+  margin-left: 10px;
+}
+.btnBorrar:hover {
+  background-color: #5b4336;
+}
+
+main form img {
+  max-width: 60%;
+  max-height: 500px;
+  display: block;
+  margin: 30px auto;
+}
+form h1 {
+  margin: 0 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
+}
+form > div {
+  width: 610px;
+  background-color: white;
+  margin: 5px auto;
+  padding: 20px;
+  border: 1px solid gray;
+  overflow: hidden;
+}
+
+form input[type="submit"],
+input[type="button"] {
+  display: block;
+  float: left;
+  width: 48%;
+  height: 30px;
+  margin: 0 1%;
+  background-color: #b0926a;
+  color: black;
+}
+form div > label {
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  box-sizing: border-box;
+  width: 29%;
+  margin: 0 1% 5px 0;
+  text-transform: uppercase;
+  font-size: 10pt;
+}
+
+form div > input,
+form div > select,
+form div > textarea {
+  float: left;
+  width: 65%;
+  box-sizing: border-box;
+  height: 25px;
+  line-height: 25px;
+  margin: 0 0 5px 0;
+}
+form div > textarea {
+  width: 100%;
+  resize: none;
+  height: 30px;
+}
+
+form > div > img {
+  clear: both;
+  max-height: 100px;
+  display: block;
+  margin: auto;
+}
+#error,
+.error {
+  text-align: center;
+  color: red;
+  font-size: smaller;
+  margin: 5px 0;
+}
+
+footer {
+  background-color: #997965; /* Tono tierra claro */
+  color: #fff;
+  text-align: center;
+  padding: 1px;
+  position: static;
+  bottom: 0;
+  width: 100%;
+}
