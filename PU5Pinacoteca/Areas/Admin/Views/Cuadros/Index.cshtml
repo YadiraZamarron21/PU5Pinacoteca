@@ -2,9 +2,12 @@
 @{
     Layout = "LayoutAdmin";
 }
-<a href="~/Admin/Cuadros/Agregar">
-    <input type="button" id="agregarObraBtn" value="+" />
-</a>
+@if(User.IsInRole("Administrador"))
+{
+    <a href="~/Admin/Cuadros/Agregar">
+        <input type="button" id="agregarObraBtn" value="+" />
+    </a>    
+}
 <section id="colecciones">
     @foreach (var item in Model.Colecciones)
     {
@@ -17,10 +20,14 @@
                     <div class="pais-seccion">
                             <img src="~/Cuadros/@(i.Id).jpg" alt="Obra" />
                         <h3>@i.Nombre</h3>
+                        @if (User.IsInRole("Gestor"))
+                        {
+                            
                         <div class="botones">
                         <a href="~/Admin/Cuadros/Eliminar/@i.Id" class="btnBorrar">Eliminar</a>
                         <a href="~/Admin/Cuadros/Editar/@i.Id" class="btnEditar">Editar</a>
                         </div>
+                        }
 
                     </div>
                 </div>

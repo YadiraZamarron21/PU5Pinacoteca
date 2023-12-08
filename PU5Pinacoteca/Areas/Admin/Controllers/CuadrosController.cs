@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using PU5Pinacoteca.Areas.Admin.Models;
@@ -7,6 +8,7 @@ using PU5Pinacoteca.Repositories;
 
 namespace PU5Pinacoteca.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class CuadrosController : Controller
     {
@@ -20,7 +22,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
             coleccionRepos = coleccionRepository;
             pintorRepo = pintorRepository;
         }
-
+        [Authorize(Roles = "Administrador, Gestor")]
         public IActionResult Index()
         {
             AdminVerCuadrosViewModel vm = new()
@@ -39,6 +41,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
             return View(vm);
         }
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Agregar()
         {
             AdminAgregarCuadroViewModel vm = new();
@@ -137,6 +140,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Gestor")]
         public IActionResult Editar(int id)
         {
             var cuadro = cuadrosRepos.Get(id);
@@ -172,6 +176,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
             }
         }
         [HttpPost]
+        
         public IActionResult Editar(AdminAgregarCuadroViewModel vm)
         {
             if (vm.Archivo != null)
@@ -251,6 +256,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Gestor")]
         public IActionResult Eliminar(int id)
         {
             var cuadro = cuadrosRepos.Get(id);
