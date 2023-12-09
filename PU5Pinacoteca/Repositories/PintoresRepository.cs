@@ -17,7 +17,7 @@ namespace PU5Pinacoteca.Repositories
         }
         public Pintor? GetByNombre(string nombre)
         {
-            return Context.Pintor.Include(x => x.Nombre).FirstOrDefault(x => x.Nombre == nombre);
+            return Context.Pintor.FirstOrDefault(x => x.Nombre == nombre);
         }
     }
 }
