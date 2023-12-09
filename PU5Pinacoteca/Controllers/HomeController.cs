@@ -13,14 +13,14 @@ namespace PU5Pinacoteca.Controllers
     {
         //INYECTAR EL REPOSITORIO
         private readonly CuadrosRepository cuadrosRepository;
-        private readonly Repository<Coleccion> coleccionRepository;
+       
         private readonly PintoresRepository pintorRepository;
         private readonly Repository<Usuarios> usuariosRepository;
 
-        public HomeController(CuadrosRepository cuadrosRepository, Repository<Coleccion> coleccionRepository,PintoresRepository pintorRepository, Repository<Usuarios> usuariosRepository)
+        public HomeController(CuadrosRepository cuadrosRepository,PintoresRepository pintorRepository, Repository<Usuarios> usuariosRepository)
         {
             this.cuadrosRepository = cuadrosRepository;
-            this.coleccionRepository = coleccionRepository;
+           
             this.pintorRepository = pintorRepository;
             this.usuariosRepository = usuariosRepository;
         }
@@ -109,9 +109,24 @@ namespace PU5Pinacoteca.Controllers
             };
             return View(vm);
         }
-        public IActionResult VerCuadrosPorPintor()
+        public IActionResult VerCuadrosPorPintor(string id)
         {
-            return View();
+            id = id.Replace("-", " ");
+            var pintor = pintorRepository.GetByNombre(id);
+            if (pintor == null)
+            {
+                return RedirectToAction("Index");
+            }
+            VerCuadrosPorPintorViewModel vm = new()
+            {
+                NombrePintor = pintor.Nombre,
+                CuadrosPintor = cuadrosRepository.GetByPintor(pintor.Nombre).Select(x=> new CuadroPModel
+                { 
+                    Id = x.Id,
+                    Nombre = x.TituloCuadro
+                })
+            };
+            return View(vm);
         }
 
 

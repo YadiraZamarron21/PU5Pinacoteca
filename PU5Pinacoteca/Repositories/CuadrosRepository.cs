@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using PU5Pinacoteca.Models.Entities;
 
 namespace PU5Pinacoteca.Repositories
@@ -37,6 +38,13 @@ namespace PU5Pinacoteca.Repositories
                 .Include(x => x.IdColeccionNavigation)
                 .Include(x=>x.IdPintorNavigation)
                 .FirstOrDefault(x => x.TituloCuadro == nombre);
+        }
+        public IEnumerable<Cuadro> GetByPintor(string nombre)
+        {
+            return Context.Cuadro
+                .Include(x=> x.IdPintorNavigation)
+                .Where(x=>x.IdPintorNavigation.Nombre == nombre).OrderBy(x=>x.TituloCuadro);
+                
         }
     }
 }
