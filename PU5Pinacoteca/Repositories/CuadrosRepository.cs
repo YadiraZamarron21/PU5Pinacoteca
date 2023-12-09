@@ -26,13 +26,17 @@ namespace PU5Pinacoteca.Repositories
         {
             return Context.Cuadro.
                 Include(x => x.IdColeccionNavigation)
+               
                 .Where(x => x.IdColeccionNavigation != null && x.IdColeccionNavigation.Nombre == coleccion).
                 OrderBy(x => x.TituloCuadro);
         }
 
         public Cuadro? GetByNombre(string nombre)
         {
-            return Context.Cuadro.Include(x => x.IdColeccionNavigation).FirstOrDefault(x => x.TituloCuadro == nombre);
+            return Context.Cuadro
+                .Include(x => x.IdColeccionNavigation)
+                .Include(x=>x.IdPintorNavigation)
+                .FirstOrDefault(x => x.TituloCuadro == nombre);
         }
     }
 }
