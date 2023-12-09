@@ -7,7 +7,7 @@ namespace PU5Pinacoteca.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
-        //INYECTAR EL REPOSITORIO
+      
 
 
 

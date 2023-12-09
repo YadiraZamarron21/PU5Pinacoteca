@@ -25,7 +25,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 //INYECTANDO EL CONTEXT
 builder.Services.AddDbContext<PinacotecabdContext>
-    (x=>x.UseMySql("server=localhost;user=root;password=root;database=pinacotecabd", 
+    (x=>x.UseMySql("server=websitos256.com;user=websitos_Pinacoteca;password=1i35%e4gS;database=websitos_Pinacoteca", 
     Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql")));
 
 builder.Services.AddMvc();
@@ -37,6 +37,7 @@ app.MapControllerRoute(
      name: "areas",
             pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
           );
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapDefaultControllerRoute();
 app.Run();
