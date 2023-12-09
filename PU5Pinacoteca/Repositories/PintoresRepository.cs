@@ -13,7 +13,7 @@ namespace PU5Pinacoteca.Repositories
         //traer por pais de nacimiento
         public override IEnumerable<Pintor> GetAll()
         {
-            return Context.Pintor.Include(x => x.Pais).OrderBy(x => x.Pais);
+            return Context.Pintor.OrderBy(x => x.Pais);
         }
         public Pintor? GetByNombre(string nombre)
         {

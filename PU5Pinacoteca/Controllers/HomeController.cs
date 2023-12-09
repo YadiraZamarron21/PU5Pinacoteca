@@ -48,7 +48,21 @@ namespace PU5Pinacoteca.Controllers
         }
         public IActionResult Pintores()
         {
-            return View();
+            PintoresViewModel vm = new()
+            {
+                Paises = pintorRepository.GetAll().GroupBy(x => x.Pais).Select(x => new PaisModel
+                {
+                    NombrePais = x.Key,
+                    Pintores = pintorRepository.GetAll().Where(b =>b.Pais==x.Key).Select(x=> new PintorModel
+                    {
+                        Id = x.IdPintor,
+                        FechaFallec = x.FechaFallecimiento??"Sin registro",
+                        FechaNacim = x.FechaNacimiento ?? "Sin registro",
+                        Nombre = x.Nombre
+                    })
+                })
+            };
+            return View(vm);
         }
         public IActionResult VerCuadro(string id)
         {
