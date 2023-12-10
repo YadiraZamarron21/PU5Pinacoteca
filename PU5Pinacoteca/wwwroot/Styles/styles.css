@@ -24,7 +24,18 @@ header img {
   height: auto;
   max-height: 80px; /* Ajusta según sea necesario */
 }
-
+header h4 {
+  margin-left: 30%;
+}
+header a {
+  color: #fff;
+  padding: 10px;
+  background-color: #7d5c4d;
+  text-decoration: none;
+}
+header a:hover {
+  background-color: #997965; /* Tono marrón oscuro al pasar el ratón */
+}
 nav {
   background-color: #7d5c4d; /* Tono marrón medio */
   color: #fff;
