@@ -8,7 +8,11 @@
     </a>
     <h1 class="nombreautor">@Model.NombrePintor</h1>
     <div class="obras-lista">
-        @if (Model.CuadrosPintor!= null)
+        @if (Model.CuadrosPintor.Count() == 0)
+        {
+            <h1 class="nohay">Este pintor aún no cuenta con cuadros</h1>
+
+        }else
         {
             @foreach (var item in Model.CuadrosPintor)
             {
@@ -21,9 +25,6 @@
                     </div>
                 </div>
             }
-        }else
-        {
-            <h1>Este pintor aún no cuenta con cuadros</h1>
         }
     </div>
 

@@ -9,7 +9,13 @@ body h1 {
   font-size: 30px;
 
 }
-
+.nohay{
+    font-size:35px;
+    color:white;
+     margin:10px;
+     width:100%;
+     align-self:center;
+}
 header {
   background-color: #a88774; 
   color: #fff;

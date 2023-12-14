@@ -120,11 +120,11 @@ namespace PU5Pinacoteca.Controllers
             VerCuadrosPorPintorViewModel vm = new()
             {
                 NombrePintor = pintor.Nombre,
-                CuadrosPintor = cuadrosRepository.GetByPintor(pintor.Nombre).Select(x=> new CuadroPModel
-                { 
+                CuadrosPintor = cuadrosRepository.GetByPintor(pintor.Nombre).Select(x => new CuadroPModel
+                {
                     Id = x.Id,
                     Nombre = x.TituloCuadro
-                })
+                }).ToList()
             };
             return View(vm);
         }
