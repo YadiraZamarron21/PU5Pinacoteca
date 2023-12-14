@@ -25,7 +25,7 @@ header img {
   max-height: 80px; 
 }
 header h4 {
-  margin-left: 30%;
+  margin-left: 35%;
 }
 header a {
   color: #fff;
@@ -146,6 +146,7 @@ input#agregarObraBtn {
 .obra2 h3 {
   font-size: 20px;
   margin-top: 395px;
+  color:#fff;
   margin-left: -100%;
 }
 
@@ -171,12 +172,12 @@ section {
 }
 
 .btnBorrar {
-  background-color: #7d5c4d;
-  margin-left: 10px;
+    background-color: #997965;
+    margin-left: 10px;
 }
-.btnBorrar:hover {
-  background-color: #5b4336;
-}
+    .btnBorrar:hover {
+        background-color: #5b4336;
+    }
 
 main form img {
   max-width: 60%;
