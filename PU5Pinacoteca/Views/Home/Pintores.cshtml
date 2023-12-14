@@ -11,7 +11,7 @@
             {
                 <div class="pintor">
                     <div class="pais-seccion">
-                        <a class="imgObra" href="~/Home/VerPintor/@(p.Nombre)">
+                        <a class="imgObra" href="~/Home/VerPintor/@(p.Nombre.Replace(" ","-"))">
                             <img src="~/Pintores/@(p.Id).jpg" alt="Artista" />
                         </a>
                         <h3 class="nombre">@p.Nombre</h3>

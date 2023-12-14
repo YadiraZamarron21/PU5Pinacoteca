@@ -5,18 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pinacoteca</title>
     <link href="~/Styles/styles.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Museo de arte extraordinario</h1>
-        <h4>@User.Identity?.Name</h4>
+        @if (User.IsInRole("Administrador"))
+        {
+            <h4>@(User.Identity?.Name), administrador/a</h4>
+        }
+        else
+        {
+            
+            <h4>@(User.Identity?.Name), gestor/a</h4>
+        }
         <a href="~/Home/Logout">Cerrar sesión</a>
         <img src="~/Logo_1.jpg" alt="Logotipo de Pinacoteca" />
     </header>
 
     <nav>
         <a href="~/Admin/Home">Principal</a>
-        <a href="~/Admin/Cuadros">Colección</a>
+        <a href="~/Admin/Cuadros">Cuadros</a>
     </nav>
     <main>
         @RenderBody()

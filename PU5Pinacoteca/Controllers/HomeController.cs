@@ -71,7 +71,7 @@ namespace PU5Pinacoteca.Controllers
 
             if (cuadro == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Cuadros", "Home");
             }
 
             VerCuadroViewModel vm = new()
@@ -94,7 +94,7 @@ namespace PU5Pinacoteca.Controllers
 
             if (pintor == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Pintores", "Home");
             }
 
             VerPintorViewModel vm = new()
@@ -115,7 +115,7 @@ namespace PU5Pinacoteca.Controllers
             var pintor = pintorRepository.GetByNombre(id);
             if (pintor == null)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Pintores", "Home");
             }
             VerCuadrosPorPintorViewModel vm = new()
             {

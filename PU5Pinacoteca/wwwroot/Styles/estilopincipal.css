@@ -1,17 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 5px;
-  background-color: #f5f0e1; /* Tono crema claro */
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 5px;
+    background-color: #f5f0e1;
 }
 
 body h1 {
   font-size: 30px;
-  font-family: cursive;
+
 }
 
 header {
-  background-color: #a88774; /* Tono tierra */
+  background-color: #a88774; 
   color: #fff;
   text-align: center;
   padding: 1em;
@@ -23,7 +23,7 @@ header {
 header img {
   max-width: 100%;
   height: auto;
-  max-height: 80px; /* Ajusta según sea necesario */
+  max-height: 80px; 
 }
 header a {
   margin-left: 45%;
@@ -33,11 +33,11 @@ header a {
   text-decoration: none;
 }
 header a:hover {
-  background-color: #997965; /* Tono marrón oscuro al pasar el ratón */
+  background-color: #997965;
 }
 
 nav {
-  background-color: #7d5c4d; /* Tono marrón medio */
+  background-color: #7d5c4d; 
   color: #fff;
   padding: 1em;
   text-align: center;
@@ -52,12 +52,12 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
+  background-color: #5b4336; 
 }
 
 nav a:hover,
 .selected {
-  background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
+  background-color: #5b4336; 
 }
 
 .colecciones {
@@ -66,23 +66,23 @@ nav a:hover,
 }
 
 .obras-lista {
-  columns: 2; /* Puedes ajustar el número de columnas según sea necesario */
+  columns: 2; 
   column-gap: 10px;
   list-style: none;
   margin-top: 10px;
   margin-bottom: 30px;
   padding: 20px;
-  background-color: #80634e; /* Tono marrón claro */
+  background-color: #80634e;
   align-items: center;
   text-align: center;
 }
 
 .pintor-lista {
-  columns: 2; /* Puedes ajustar el número de columnas según sea necesario */
+  columns: 2; 
   column-gap: 10px;
   list-style: none;
   padding: 10px;
-  background-color: #80634e; /* Tono marrón claro */
+  background-color: #80634e; 
   align-items: center;
   text-align: center;
 }
@@ -97,7 +97,7 @@ nav a:hover,
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border: 2px solid #ddd;
-  background-color: #664c3a; /* Tono marrón medio oscuro */
+  background-color: #664c3a; 
 }
 
 .pintor img {
@@ -130,7 +130,7 @@ nav a:hover,
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border: 2px solid #ddd;
-  background-color: #664c3a; /* Tono marrón medio oscuro */
+  background-color: #664c3a;
 }
 
 .obra h3 {
@@ -185,7 +185,7 @@ input#agregarObraBtn {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border: 2px solid #ddd;
-  background-color: #664c3a; /* Tono marrón medio oscuro */
+  background-color: #664c3a;
 }
 
 .obra2 img {
@@ -346,12 +346,15 @@ section {
 }
 
 .pais-seccion {
-  margin-top: 5px; /* Ajusta el espacio entre la imagen y el texto según sea necesario */
-  break-inside: avoid; /* Evitar que una sección se divida entre columnas */
+  margin-top: 5px; 
+  break-inside: avoid; 
   margin-bottom: 30px;
   columns: 2;
   border-radius: 8px;
   text-align: center;
+}
+.nombre, .fecha-falleci, .fecha-nacim{
+    font-size:20px;
 }
 
 .est {
@@ -478,7 +481,7 @@ a.buttonregresar {
   height: 40px;
 }
 footer {
-  background-color: #997965; /* Tono tierra claro */
+  background-color: #997965; 
   color: #fff;
   text-align: center;
   padding: 1px;

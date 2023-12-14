@@ -1,16 +1,16 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 5px;
-  background-color: #f5f0e1; /* Tono crema claro */
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 5px;
+    background-color: #f5f0e1;
 }
 
 body h1 {
   font-size: 30px;
-  font-family: cursive;
+ 
 }
 header {
-  background-color: #a88774; /* Tono tierra */
+  background-color: #a88774; 
   color: #fff;
   text-align: center;
   padding: 1em;
@@ -22,7 +22,7 @@ header {
 header img {
   max-width: 100%;
   height: auto;
-  max-height: 80px; /* Ajusta según sea necesario */
+  max-height: 80px; 
 }
 header h4 {
   margin-left: 30%;
@@ -34,10 +34,10 @@ header a {
   text-decoration: none;
 }
 header a:hover {
-  background-color: #997965; /* Tono marrón oscuro al pasar el ratón */
+  background-color: #997965; 
 }
 nav {
-  background-color: #7d5c4d; /* Tono marrón medio */
+  background-color: #7d5c4d;
   color: #fff;
   padding: 1em;
   text-align: center;
@@ -51,11 +51,11 @@ nav a {
   font-weight: bold;
 }
 nav a:hover {
-  background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
+  background-color: #5b4336; 
 }
 nav a:hover,
 .selected {
-  background-color: #5b4336; /* Tono marrón oscuro al pasar el ratón */
+  background-color: #5b4336;
 }
 .colecciones {
   column-gap: 10px;
@@ -89,19 +89,19 @@ input#agregarObraBtn {
   width: 100%;
 }
 .obras-lista {
-  columns: 2 auto; /* Puedes ajustar el número de columnas según sea necesario */
+  columns: 2 auto; 
   column-gap: 10px;
   list-style: none;
   margin-top: 5px;
   margin-bottom: 40px;
   padding: 10px;
-  background-color: #80634e; /* Tono marrón claro */
+  background-color: #80634e;
   align-items: center;
   text-align: center;
 }
 
 .pais-seccion {
-  margin-top: 1px; /* Ajusta el espacio entre la imagen y el texto según sea necesario */
+  margin-top: 1px; 
   margin-bottom: 0px;
   columns: 2;
   background-color: #80634e;
@@ -121,7 +121,7 @@ input#agregarObraBtn {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Evitar que la sombra se desborde */
+  overflow: hidden; 
 }
 .obra2 img {
   align-items: center;
@@ -250,7 +250,7 @@ form > div > img {
 }
 
 footer {
-  background-color: #997965; /* Tono tierra claro */
+  background-color: #997965; 
   color: #fff;
   text-align: center;
   padding: 1px;

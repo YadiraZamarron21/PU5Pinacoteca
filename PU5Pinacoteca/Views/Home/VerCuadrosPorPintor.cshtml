@@ -3,21 +3,27 @@
     Layout = "Layout";
 }
 <section id="colecciones">
-    <a class="buttonregresar" href="~/Home/Pintores">
+    <a class="buttonregresar" href="~/Home/VerPintor/@Model.NombrePintor.Replace(" ", "-")">
         <img src="~/images/camino-a-la-izquierda.png" alt="Obra" />
     </a>
-    <h1 class="nombreautor">@Model.NombrePintor.Replace(" ", "-")</h1>
+    <h1 class="nombreautor">@Model.NombrePintor</h1>
     <div class="obras-lista">
-        @foreach (var item in Model.CuadrosPintor)
+        @if (Model.CuadrosPintor!= null)
         {
-            <div class="obra">
-                <div class="pais-seccion">
-                    <a class="imgObra" href="~/Home/VerCuadro/@(item.Nombre)">
-                        <img src="~/Cuadros/@(item.Id).jpg" alt="Obra" />
-                    </a>
-                    <h3>@item.Nombre</h3>
+            @foreach (var item in Model.CuadrosPintor)
+            {
+                <div class="obra">
+                    <div class="pais-seccion">
+                        <a class="imgObra" href="~/Home/VerCuadro/@(item.Nombre)">
+                            <img src="~/Cuadros/@(item.Id).jpg" alt="Obra" />
+                        </a>
+                        <h3>@item.Nombre</h3>
+                    </div>
                 </div>
-            </div>
+            }
+        }else
+        {
+            <h1>Este pintor aún no cuenta con cuadros</h1>
         }
     </div>
 
